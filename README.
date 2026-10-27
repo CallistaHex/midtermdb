@@ -1,0 +1,32 @@
+-- Run this once in SQL Server Management Studio (or Visual Studio's SQL Server Object Explorer).
+IF DB_ID('MidtermDb') IS NULL
+    CREATE DATABASE MidtermDb;
+GO
+
+USE MidtermDb;
+GO
+
+IF OBJECT_ID('dbo.quizTbl', 'U') IS NULL
+CREATE TABLE dbo.quizTbl
+(
+    Id                    INT IDENTITY(1,1) PRIMARY KEY,
+    CompanyName           NVARCHAR(100)  NOT NULL,
+    Department            NVARCHAR(100)  NOT NULL,
+    EmployeeCode          NVARCHAR(50)   NOT NULL,
+    CutOff                NVARCHAR(50)   NOT NULL,
+    EmployeeName          NVARCHAR(100)  NOT NULL,
+    PayPeriod             NVARCHAR(50)   NOT NULL,
+    BasicPay              DECIMAL(18,2)  NOT NULL,
+    Overtime              DECIMAL(18,2)  NOT NULL,
+    Absences              DECIMAL(18,2)  NOT NULL,
+    Honorarium            DECIMAL(18,2)  NOT NULL,
+    Tardy                 DECIMAL(18,2)  NOT NULL,
+    GrossEarnings         DECIMAL(18,2)  NOT NULL,
+    SSSContribution       DECIMAL(18,2)  NOT NULL,
+    PhilHealthContribution DECIMAL(18,2) NOT NULL,
+    HDMFContribution      DECIMAL(18,2)  NOT NULL,
+    TotalDeductions       DECIMAL(18,2)  NOT NULL,
+    NetPay                DECIMAL(18,2)  NOT NULL,
+    SavedAt               DATETIME       NOT NULL DEFAULT GETDATE()
+);
+GO
